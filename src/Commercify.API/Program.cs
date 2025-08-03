@@ -13,7 +13,18 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    //scalar added
     app.MapScalarApiReference();
+    //swagger ui support
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "OpenAPI v1");
+    });
+    //Redoc suppport
+    app.UseReDoc(options =>
+    {
+        options.SpecUrl = "/openapi/v1.json";
+    });
 }
 
 app.UseHttpsRedirection();
