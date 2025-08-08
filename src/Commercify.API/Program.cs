@@ -14,7 +14,10 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     //scalar added
-    app.MapScalarApiReference();
+    app.MapScalarApiReference(options =>
+    {
+        options.Servers = Array.Empty<ScalarServer>();
+    });
     //swagger ui support
     app.UseSwaggerUI(options =>
     {
