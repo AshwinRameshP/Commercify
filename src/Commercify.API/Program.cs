@@ -1,11 +1,13 @@
+using Commercify.API.Extensions;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
+builder.Services
+    .AddOpenApi()
+    .AddDatabase();
 
 var app = builder.Build();
 
@@ -16,6 +18,7 @@ if (app.Environment.IsDevelopment())
     //scalar added
     app.MapScalarApiReference(options =>
     {
+        // Added for Host server to be visible in the UI
         options.Servers = Array.Empty<ScalarServer>();
     });
     //swagger ui support
