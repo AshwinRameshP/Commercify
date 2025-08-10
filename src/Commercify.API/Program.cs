@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services
     .AddOpenApi()
+    .AddCustomConfiguration(builder.Configuration)
     .AddDatabase();
 
 var app = builder.Build();
