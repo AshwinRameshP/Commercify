@@ -55,4 +55,5 @@ nunit-*.xml
 
 #Visual studio
 .vs
+#local container files
 /.containers/commercify.database
