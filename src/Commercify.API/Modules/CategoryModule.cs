@@ -1,4 +1,5 @@
-﻿using Commercify.Core.Features.Categories.Create;
+﻿using Commercify.API.Extensions;
+using Commercify.Core.Features.Categories.Create;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Commercify.API.Modules;
@@ -10,8 +11,9 @@ public class CategoryModule
         var group = app.MapGroup("/categories")
             .WithTags("Categories")
             .WithOpenApi();
-        group.MapPost("/categories", CreateCategory);
 
+        group.MapPost("/categories", CreateCategory)
+            .Validator<CreateCategoryRequest>();
     }
 
     private static async Task<Ok<CreateCategoryResponse>> CreateCategory(CreateCategoryRequest request,CreateCategoryUseCase useCase)
