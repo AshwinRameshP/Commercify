@@ -4,7 +4,7 @@ public interface IEntity
 {
 
 }
-public abstract class BaseEntity
+public abstract class BaseEntity : IEntity
 {
     public DateTime CreatedAt { get; set; }
     public DateTime LastUpdatedAt { get; set; }
