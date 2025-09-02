@@ -31,6 +31,20 @@ services:
         timeout: 5s
         retries: 5
 
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+        - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+        - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+        - "5050:80"
+    depends_on:
+        commercify.database:
+            condition: service_healthy
+    networks:
+        - commercify-network
+
 networks:
     commercify-network:
         driver: bridge
