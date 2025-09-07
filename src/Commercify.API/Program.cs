@@ -9,10 +9,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services
-    .AddOpenApi()   
+    .AddEndpointsApiExplorer()
+    .AddOpenApi()
     .AddCustomConfiguration(builder.Configuration)
     .AddDatabase()
-    .AddDependencyInjection();
+    .AddSwagger()
+    .AddDependencyInjection()
+    .AddCors(policy =>
+    {
+        policy.AddPolicy("OpenCorsPolicy", builder =>
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+    });
 
 var app = builder.Build();
 
@@ -31,10 +40,12 @@ if (app.Environment.IsDevelopment())
         options.Servers = Array.Empty<ScalarServer>();
     });
     //swagger ui support
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/openapi/v1.json", "OpenAPI v1");
-    });
+    //app.UseSwagger();
+    //app.UseSwaggerUI(options =>
+    //{
+    //    options.SwaggerEndpoint("/openapi/v1.json", "OpenAPI v1");
+    //});
+    app.UseSwaggerWithUI(app.Environment);
     //Redoc suppport
     app.UseReDoc(options =>
     {

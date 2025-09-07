@@ -10,6 +10,9 @@ services:
     depends_on:
         commercify.database:
             condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:8081;http://+:8080
     networks:
        - commercify-network
   commercify.database:
