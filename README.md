@@ -17,8 +17,9 @@ localhost:xxxx/scalar
 localhost:xxxx/Swagger
 
 ### Postgres admin 
-Open from docker Url and login with creds from docker-compose.yml
+Open from docker Url for pgadmin and login with creds from docker-compose.yml
 admin@admin.com 
 admin
 
-Create server  based on Create Category Table
+Create server for commercifiy and connect it to `commercify.database` Database running on 5432 Port.
+Schemas >  Create Category Table > View
