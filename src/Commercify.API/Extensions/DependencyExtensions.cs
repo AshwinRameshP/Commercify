@@ -1,4 +1,7 @@
 ﻿using Commercify.Core.Features.Categories.Create;
+using Commercify.Core.Features.Categories.Delete;
+using Commercify.Core.Features.Categories.Read;
+using Commercify.Core.Features.Categories.Update;
 using Commercify.Core.Shared;
 using Commercify.Infrastructure.Database;
 using FluentValidation;
@@ -13,6 +16,9 @@ public static class DependencyExtensions
         services.AddValidatorsFromAssemblyContaining<CreateCategoryValidator>();
 
         services.AddTransient<CreateCategoryUseCase>();
+        services.AddTransient<UpdateCategoryUseCase>();
+        services.AddTransient<DeleteCategoryUseCase>();
+        services.AddTransient<CategoryReadService>();
 
         return services;
     }

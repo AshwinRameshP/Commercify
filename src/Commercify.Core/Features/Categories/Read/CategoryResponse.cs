@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Commercify.Core.Features.Categories.Read;
 
-namespace Commercify.Core.Features.Categories.Read;
+public record CategoryResponse(long Id, string Name, string Description);
 
-internal class CategoryResponse
-{
-}
