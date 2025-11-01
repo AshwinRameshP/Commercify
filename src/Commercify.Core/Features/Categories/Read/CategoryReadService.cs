@@ -33,8 +33,8 @@ public class CategoryReadService
         
         if (category == null)
         {
-            return Result.Failure(ErrorType.NotFound,$"Category with id {id} not found.");
-        }
+            return Result.NotFound($"Category with id {id} not found.");
+        }   
         return category;
     }
 }

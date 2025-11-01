@@ -13,5 +13,5 @@ public class Product : BaseEntity
     public decimal Price { get; set; }
     public long CategoryId {  get; set; }
     public Category? Category { get; set; } 
-    public int stockQuantity { get; set; }
+    public int StockQuantity { get; set; }
 }
