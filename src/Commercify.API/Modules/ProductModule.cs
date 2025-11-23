@@ -43,15 +43,15 @@ public class ProductModule
             .WithSummary("Deletes a specific product from the system based on its ID.");
         
         //group.MapPost("/import", ImportProducts)
-        //    .WithSummary("Imports multiple products from a CSV file, allowing batch creation.")
-        //    //TODO fix this properly
-        //    // https://stackoverflow.com/questions/77189996/upload-files-to-a-minimal-api-endpoint-in-net-8
-        //    // https://www.youtube.com/watch?v=ihwXmTE9dkk
-        //    //Antiforgery protection is a security measure that prevents cross-site request forgery (CSRF) attacks.
-        //    //CSRF attacks trick authenticated users into performing actions they didn't intend by submitting forms or requests on their behalf.
-        //    // The risk here for cross-site request forgery is low, as the endpoint will be protected later,
-        //    // so that only administrators can access it.
-        //    .DisableAntiforgery();
+            //.WithSummary("Imports multiple products from a CSV file, allowing batch creation.")
+            //TODO fix this properly
+            // https://stackoverflow.com/questions/77189996/upload-files-to-a-minimal-api-endpoint-in-net-8
+            // https://www.youtube.com/watch?v=ihwXmTE9dkk
+            //Antiforgery protection is a security measure that prevents cross-site request forgery (CSRF) attacks.
+            //CSRF attacks trick authenticated users into performing actions they didn't intend by submitting forms or requests on their behalf.
+            // The risk here for cross-site request forgery is low, as the endpoint will be protected later,
+            // so that only administrators can access it.
+            //.DisableAntiforgery();
     }
 
     private static async Task<Ok<IEnumerable<ProductResponse>>> GetAllProducts(
