@@ -11,7 +11,7 @@ namespace Commercify.Core.Features.Categories.Delete
 
             if (category == null)
             {
-                return Result.Failure(ErrorType.NotFound, $"Category with id {id} was not found.");
+                return Result.NotFound($"Category with id {id} was not found.");
             }
 
             dbContext.Set<Category>().Remove(category);
