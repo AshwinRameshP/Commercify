@@ -16,6 +16,7 @@ public class DatabaseBuilder : IDisposable
         var options = new DbContextOptionsBuilder<AppDbContext>().UseSqlite(_connection)
             .Options;
         var context = new AppDbContext(options);
+        context.Database.EnsureCreated();
         return context; 
     }
 
