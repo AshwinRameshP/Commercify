@@ -3,6 +3,7 @@ using Commercify.Core.Features.Categories.Create;
 using Commercify.Core.Features.Categories.Delete;
 using Commercify.Core.Features.Categories.Read;
 using Commercify.Core.Features.Categories.Update;
+using Commercify.Core.Features.Products.Read;
 using Commercify.Core.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -32,7 +33,7 @@ public class CategoryModule
         {
             return TypedResults.NoContent();
         }
-        return result.ErrorType == ErrorType.NotFound  ? TypedResults.NotFound(result.ErrorMessage) : TypedResults.BadRequest(result.ErrorMessage);
+        return result.Status == ResultStatus.NotFound  ? TypedResults.NotFound(result.ErrorMessage) : TypedResults.BadRequest(result.ErrorMessage);
     }
 
     private static async Task<Results<Ok<UpdateCategoryResponse>, NotFound<string>>> UpdateCategory(long id, 
