@@ -1,4 +1,5 @@
 ﻿using Commercify.API.Extensions;
+using Commercify.API.Modules;
 using Commercify.Core.Features.Products.Create;
 using Commercify.Core.Features.Products.Delete;
 using Commercify.Core.Features.Products.Import;
@@ -11,11 +12,11 @@ using Microsoft.AspNetCore.Http.HttpResults;
 namespace Commercify.Api.Modules;
 
 // ReSharper disable once UnusedType.Global
-public class ProductModule
+public class ProductModule: IModule
 {
     private const string GetProductEndpointName = "GetProduct";
 
-    public static void MapEndpoints(IEndpointRouteBuilder app)
+    public void MapEndpoints(IEndpointRouteBuilder app)
     {
         var group = app.MapGroup("/products")
             .WithOpenApi()

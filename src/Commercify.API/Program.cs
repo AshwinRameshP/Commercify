@@ -54,7 +54,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-CategoryModule.MapEndpoints(app);
-ProductModule.MapEndpoints(app);
+new CategoryModule().MapEndpoints(app);
+new ProductModule().MapEndpoints(app);
 
 app.Run();

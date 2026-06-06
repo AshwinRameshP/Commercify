@@ -1,10 +1,11 @@
 ﻿using Commercify.Core.Models;
 using Commercify.Core.Shared;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Commercify.Infrastructure.Database;
 
-public class AppDbContext : DbContext, IDbContext
+public class AppDbContext : IdentityDbContext<AppUser>, IDbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {

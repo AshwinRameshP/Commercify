@@ -1,4 +1,5 @@
 ﻿using Commercify.API.Configurations;
+using Commercify.Core.Models;
 using Commercify.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -9,6 +10,8 @@ public static class DatabaseExtensions
 {
     public static IServiceCollection AddDatabase(this IServiceCollection services)
     {
+        services.AddIdentityCore<AppUser>()
+            .AddEntityFrameworkStores<AppDbContext>();
         services.AddDbContext<AppDbContext>((serviceProvider, options) =>
         {
             var dbOptions = serviceProvider.GetRequiredService<IOptions<DatabaseOptions>>().Value;

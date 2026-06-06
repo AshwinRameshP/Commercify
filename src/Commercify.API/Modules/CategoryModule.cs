@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Commercify.API.Modules;
 
-public class CategoryModule
+public class CategoryModule: IModule
 {
-    public static void  MapEndpoints(IEndpointRouteBuilder app)
+    public void MapEndpoints(IEndpointRouteBuilder app)
     {
         var group = app.MapGroup("/categories")
             .WithTags("Categories")

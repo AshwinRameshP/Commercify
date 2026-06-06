@@ -1,18 +1,14 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace Commercify.Core.Models;
 
 public class AppUser: IdentityUser,IEntity
 {
-    public AppUser(string email, string firstName, string lastName) : base(email)
+    public AppUser(string email, string firstName, string lastName)
     {
         FirstName = firstName;
         LastName = lastName;
+        Email = email;
     }
     public static class MaxLengths
     {
