@@ -1,0 +1,9 @@
+root = true
+
+# EditorConfig for Commercify
+# Enforce file-scoped namespace declarations for all C# files
+
+[*.cs]
+# Prefer file-scoped namespace declarations (e.g. `namespace X;`)
+# Values: file_scoped or block_scoped; append severity after a colon (none|suggestion|warning|error)
+csharp_style_namespace_declarations = file_scoped:suggestion

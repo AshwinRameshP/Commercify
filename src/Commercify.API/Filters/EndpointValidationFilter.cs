@@ -4,7 +4,7 @@ using System.Net;
 
 namespace Commercify.API.Filters;
 
-internal class EndpointValidationFilter<T>(IValidator<T> validator) : IEndpointFilter
+public class EndpointValidationFilter<T>(IValidator<T> validator) : IEndpointFilter
 {
     private IValidator<T> Validator => validator;   
     public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)

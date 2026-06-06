@@ -215,7 +215,7 @@ public class Error
 
     public string ErrorMessage { get; }
 
-    internal Error(ResultStatus status, string errorMessage)
+    public Error(ResultStatus status, string errorMessage)
     {
         ErrorMessage = errorMessage;
         Status = status;

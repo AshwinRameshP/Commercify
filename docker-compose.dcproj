@@ -10,6 +10,8 @@
     <DockerServiceName>commercify.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
+    <None Include="Directory.Packages.props" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
